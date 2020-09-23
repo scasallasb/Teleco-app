@@ -1,0 +1,58 @@
+        <mat-card>  
+              <mat-card-header>
+                    <mat-card-title>Actualizar instalación </mat-card-title>
+              </mat-card-header>
+
+              <mat-card-content>
+                <div class="row">
+           
+                    <mat-form-field  color="accent"> 
+                    
+                    <mat-label>fecha de instalación</mat-label>
+                    <input [matDatepicker]="picker1">
+                    
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="">
+
+                    <mat-card-content>
+                        <form [formGroup]="formsServiceInstalacion">  
+                          <table>
+                            <thead>
+                              <tr>
+                                <th scope="col">Cantidad</th>
+                                  <th scope="col">Producto</th>       
+                                  <th scope="col">Descripcion</th>
+                                  <th scope="col">Precio</th>
+                                  
+                              </tr>
+                          </thead>
+                          <tbody>
+                            
+                          </tbody>
+                          </table>
+                        <td>
+                            <mat-form-field >
+                                <input matInput  formControlName="cantidad"  placeholder="cantidad">
+                              </mat-form-field>
+                        </td>
+                        <td> 
+                          <mat-form-field>
+                            <input matInput  formControlName="concepto"  placeholder="concepto">
+                          </mat-form-field>
+                        </td>
+                        <td> 
+                          <mat-form-field>
+                            <input matInput  formControlName="v_unidad"  placeholder="valor unitario">
+                          </mat-form-field>
+                        </td>
+                        </form>
+                        </mat-card-content>
+                </div>
+
+              </mat-card-content>
+     </mat-card>
+
+

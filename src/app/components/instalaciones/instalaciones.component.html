@@ -1,0 +1,33 @@
+<div class="container pt-3">
+<button (click)="crear_usuario($event)" class="button btn btn-primary" type="submit">nueva instalacion</button>
+<table class="table   .desplazado">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fecha programada</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Corréo</th>
+        <th scope="col">Ver ubicación</th>
+        <th scope="col">instalar</th>
+        <th scope="col">borrar</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of instalations;let i = index" [attr.data-index]="i" >
+        <th *ngIf ="user.usuario!=null" scope="row">{{i+1}}</th>
+        <td>{{user.fechaProgramada}}</td>
+        <td  *ngIf ="user.usuario!=null" >{{user.usuario.nombreUser}}</td>
+        <td *ngIf ="user.usuario!=null">{{user.usuario.apellidoUser}}</td>
+        <td *ngIf ="user.usuario!=null">{{user.usuario.direccionUser}}</td>
+        <td *ngIf ="user.usuario!=null">{{user.usuario.telefonoUser}}</td>
+        <td *ngIf ="user.usuario!=null">{{user.usuario.emailUser}}</td>
+        <td><button  (click)="mostrarUbicacion($event,user.usuario.idUser,user.usuario.coordenadasX, user.usuario.coordenadasY)" type="button" class="btn btn-outline-primary"  >ubicación</button></td>
+        <td><button  (click)="mostrarServiciosInstalacion($event, user.idInstalacion )" type="button" class="btn btn-outline-info" >instalar</button> </td>
+        <td><button  (click)="borrarInstalacion($event, user.idInstalacion)" type="button" class="btn btn btn-outline-danger">eliminar</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

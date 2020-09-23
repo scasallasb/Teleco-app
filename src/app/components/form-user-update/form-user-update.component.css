@@ -1,0 +1,25 @@
+agm-map {
+  
+    height: 80%;
+    width:  600px;
+    max-width: 3000px;
+    min-width: 300px;
+  }
+
+
+
+/* Esta es una manera de hacerlo */
+.container {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  height: 100vh;
+  /* Puedes limitar la anchura */
+  max-width: 1500px;
+}
+
+.container__item--sidebar,
+.container__item--content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }

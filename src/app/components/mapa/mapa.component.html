@@ -1,0 +1,9 @@
+
+<button (click)= "volver($event)" class="button btn btn-primary" type="submit">volver</button>
+    <h3>Nombre: {{user.nombreUser}} {{user.apellidoUser}}</h3>
+    <h3>  Celular: {{user.telefonoUser}}</h3>
+<agm-map [scrollwheel]="false" 
+[fullscreenControl]='true' [mapTypeControl]='true'  [latitude]="marcador.lat" [longitude]="marcador.lng" [zoom]="15">
+    <agm-marker  [latitude]="marcador.lat" [longitude]="marcador.lng" ></agm-marker>
+</agm-map>
+ <h3>  Dirección: {{user.direccionUser}}</h3>

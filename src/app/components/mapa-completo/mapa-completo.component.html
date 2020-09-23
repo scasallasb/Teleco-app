@@ -1,0 +1,50 @@
+<agm-map [scrollwheel]="false" 
+[fullscreenControl]='true' [mapTypeControl]='true'  [latitude]="4.312460076535143" [longitude]="-74.43359764099121" [zoom]="13">
+<!-- usuario que tienen contrato y van a ser instalados-->
+<ng-container *ngFor="let mark of usuarios">
+    <agm-marker     *ngIf ="mark.haveContract  &&  haveContract " 
+    [latitude] ="mark.coordenadasX" [longitude]="mark.coordenadasY">  
+   
+        <agm-info-window>
+            <div class="row">{{mark.nombreUser}} {{mark.apellidoUser}} {{mark.telefonoUser}} {{mark.idUser}}</div>
+            <div> <button  (click)="mostrarUbicacionUser($event,mark.idUser, mark.coordenadasX, mark.coordenadasY)">mostrar mas</button></div>
+            <div> <button  (click)="mostrarDetalleUser($event,mark.idUser)">actualizar</button></div>
+        </agm-info-window>
+    </agm-marker>
+</ng-container> 
+<!-- usuario instalados-->
+<ng-container *ngFor="let mark of usuarios" >
+    <agm-marker  *ngIf="mark.isInstalled && isInstalled"    [iconUrl]= "iconMap.iconUrl_user_installed" 
+    [latitude] ="mark.coordenadasX" [longitude]="mark.coordenadasY" >
+        <agm-info-window > {{mark.nombreUser}} {{mark.apellidoUser}} {{mark.telefonoUser}}</agm-info-window>
+    </agm-marker>
+</ng-container>
+<!-- cajas de empalme-->   
+<ng-container *ngFor="let mark of caja_empalme" >
+    <agm-marker     *ngIf="c_empalme"
+    [latitude] ="mark.coordenadasY" [longitude]="mark.coordenadasX" [iconUrl]= "iconMap.iconUrl_cajaEmpalme">
+        <agm-info-window >{{ mark.nomenclatura}} <br> {{mark.descripcion}}
+        </agm-info-window>
+    </agm-marker>
+</ng-container> 
+<!-- solicitudes de instalación -->    
+<ng-container *ngFor="let mark of usuarios" >
+    <agm-marker       *ngIf="!mark.haveContract && !mark.isInstalled" [iconUrl]="iconMap.iconUrl_user_pending"
+    [latitude] ="mark.coordenadasX" [longitude]="mark.coordenadasY">
+        <agm-info-window >{{mark.nombreUser}} {{mark.apellidoUser}} {{mark.telefonoUser}}</agm-info-window>
+    </agm-marker>
+</ng-container>   
+
+</agm-map>
+<div  class="container">
+    <div>
+        <button (click)="isInstalledSwitch($event)">mostrar usuarios instalados</button>
+    </div>
+    <div>
+        <button (click)="haveContractSwitch($event)">mostrar usuarios con contrato</button>
+    </div>
+
+    <div>
+        <button (click)="empalmeSwitch($event)">mostrar infraestructura</button>
+    </div>
+</div>

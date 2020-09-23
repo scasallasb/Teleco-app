@@ -1,0 +1,118 @@
+
+
+<main class="container">
+    <aside class="container__item--sidebar">
+      <form [formGroup]="forms"   (ngSubmit)="updateUser($event)">
+        <mat-card> 
+            <div>
+                <button (click)="volver($event)"  class="button btn btn-primary" type="submit" >volver</button>
+              </div> 
+              <mat-card-header>
+                <mat-card-title>Actualizar usuario</mat-card-title>
+              </mat-card-header>
+
+              <mat-card-content>
+                
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input formControlName="codigoUser" matInput placeholder="Código" type="text">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input formControlName="nContrato" matInput placeholder="Número de contrato" type="text">
+                        </mat-form-field>
+                       </div>               
+                  </div>
+                
+                <div class="row">
+                  <div class="col-xs">
+                      <mat-form-field>
+                          <input formControlName="nombreUser" matInput placeholder="Nombre" type="text">
+                      </mat-form-field>
+                     </div> 
+                      <div class="col-xs">
+                      <mat-form-field>
+                          <input formControlName="segundoNombreUser" matInput placeholder="Segundo nombre" type="text">
+                      </mat-form-field>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                      <mat-form-field>
+                      <input formControlName="apellidoUser" matInput placeholder="Apellido"type="text">
+                      </mat-form-field> 
+                    </div>
+                    <div class="col-xs">
+                      <mat-form-field>
+                          <input formControlName="segundoApellidoUser" matInput  placeholder="Segundo apellido" type="text">
+                      </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                      <mat-form-field>
+                        <input formControlName="identificationUser" matInput placeholder="N° Identificación" type="text">
+                      </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                      <mat-form-field>
+                        <input formControlName="telefonoUser"  matInput placeholder="Teléfono"  type="text">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xs">
+                      <mat-form-field>
+                        <input formControlName="emailUser" matInput placeholder="Correo"  type="text">
+                      </mat-form-field>
+                    </div>
+                </div>
+          
+                <div class="row">
+                    <div class="col-xs">
+                      <mat-form-field>
+                      <input formControlName="direccionUser" placeholder="Dirección" matInput type="text">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs">
+                        <input type="checkbox"  formControlName="haveContract" [(ngModel)]=" isChecked_contract" (change)="tieneContrato( isChecked_contract? true:false)">
+                         <label for="vehicle1">  tiene contrato</label><br>
+                    </div>
+                    <div class="col-xs">
+                        <input type="checkbox"  formControlName="isInstalled" matCheckbox [(ngModel)]=" isCheked_installed" (change)="tieneContrato( isCheked_installed?true:false)">
+                         <label for="vehicle1">  esta instalado</label><br>
+                    </div>
+                </div> 
+
+                <div class="row">
+                  <div class="col-xs">
+                        <mat-form-field>
+                            <input [(ngModel)]="marcador.lat" formControlName="coordenadasX" placeholder="Latitud" matInput type="text">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <input [(ngModel)]="marcador.lng"  formControlName="coordenadasY" placeholder="Longitud" matInput type="text">
+                        </mat-form-field>
+                    </div>
+                </div>
+              </mat-card-content>
+              
+              <mat-card-actions>
+                <button [disabled]="forms.invalid" mat-raised-button  class="btn btn-success" type="submit">Actualizar instalación</button>
+              </mat-card-actions>
+        </mat-card>
+      </form>  
+    </aside>
+    
+    <div class="container__item--content">
+          <agm-map [scrollwheel]="false" 
+          [fullscreenControl]='true' [mapTypeControl]='true' (mapClick)= "moveMarcador($event)"    [latitude]="marcador.lat" [longitude]="marcador.lng" [zoom]="15">
+            <agm-marker  [latitude]="marcador.lat" [longitude]="marcador.lng"  ></agm-marker>
+          </agm-map>
+       </div>
+
+
+       

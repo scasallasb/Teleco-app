@@ -1,0 +1,38 @@
+<form   [formGroup]="form"   (ngSubmit)="saveServicioInstalado($event)">
+    <mat-card>
+        <td>
+            <mat-card-content>
+                <input  formControlName="Ip" matInput placeholder="Ip" type="text">
+            </mat-card-content>    
+        </td>
+        <td>
+            <mat-card-content>
+                <input  formControlName="MacOnt" matInput placeholder="MAC ONT" type="text">
+            </mat-card-content>    
+        </td>
+        <td>
+            <mat-card-content>
+                <input  formControlName="MacTvBox" matInput placeholder="MAC TV BOX" type="text">
+            </mat-card-content>    
+        </td>
+        <td>
+            <mat-card-content>
+                <input  formControlName="drop" matInput placeholder="Drop(mtrs)" type="text">
+            </mat-card-content>    
+        </td>
+        <td>
+            <mat-card-content>
+                <input  formControlName="utp" matInput placeholder="Cable UTP(mtrs)" type="text">
+            </mat-card-content>    
+        </td>
+        <td>
+            <mat-card-content>
+                <input  formControlName="cable_av" matInput placeholder="Cable AV " type="text">
+            </mat-card-content>    
+        </td>
+         
+        <mat-card-actions>
+            <button  mat-raised-button  class="btn btn-success" type="submit">instalar</button>   
+        </mat-card-actions>
+    </mat-card>
+</form>

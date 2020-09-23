@@ -1,0 +1,9 @@
+.botton_search{
+  border-color:#4DA1D9;
+  color: #4DA1D9;
+}
+@media (min-width: 700px) { 
+    .navbar{
+            text-align: center;
+           }
+}

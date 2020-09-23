@@ -1,0 +1,10 @@
+
+<div class="card text-white bg-info mt-5 mb-3" *ngFor="let servicio of servicios; let i=index" style="max-width: 18rem;">
+  <div class="card-header">{{servicio.nombre}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{servicio.valor}}</h5>
+    <p class="card-text">{{servicio.tecnologia}}</p>
+  </div>
+  <button (click)="verServicio(i)" name="button"></button>
+  <button [routerLink]="['/servicio',i]" type="button btn-primary" name="button"> ver mas</button>
+</div>

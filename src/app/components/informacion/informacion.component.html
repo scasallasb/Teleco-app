@@ -1,0 +1,29 @@
+
+<!-- tabla para visualizar información  -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Agregar instalación</th>
+      <th scope="col">Actualizar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users;let i = index" [attr.data-index]="i" >
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.nombreUser}}</td>
+      <td>{{user.apellidoUser}}</td>
+      <td>{{user.telefonoUser}}</td>
+      <td>{{user.direccionUser}}</td>
+      <td><button  (click)="addInstalacion($event, user.idUser)"  type="button" class="btn btn-outline-primary">+</button></td>
+      <td><button  (click)="mostrarDetalleUser($event,user.idUser)" type="button" class="btn btn-outline-success">actualizar</button></td>
+      <td><button  (click)="eliminarUser($event,user.idUser)" type="button" class="btn btn btn-outline-danger">Eliminar</button></td>
+    </tr>
+
+  </tbody>
+</table>
