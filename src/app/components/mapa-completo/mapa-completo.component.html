@@ -6,7 +6,7 @@
     [latitude] ="mark.coordenadasX" [longitude]="mark.coordenadasY">  
    
         <agm-info-window>
-            <div class="row">{{mark.nombreUser}} {{mark.apellidoUser}} {{mark.telefonoUser}} {{mark.idUser}}</div>
+            <div class="row">{{mark.nombreUser}} {{mark.apellidoUser}} {{mark.telefonoUser}}</div>
             <div> <button  (click)="mostrarUbicacionUser($event,mark.idUser, mark.coordenadasX, mark.coordenadasY)">mostrar mas</button></div>
             <div> <button  (click)="mostrarDetalleUser($event,mark.idUser)">actualizar</button></div>
         </agm-info-window>
@@ -35,8 +35,9 @@
     </agm-marker>
 </ng-container>   
 
+
 </agm-map>
-<div  class="container">
+<div  class="container  ">
     <div>
         <button (click)="isInstalledSwitch($event)">mostrar usuarios instalados</button>
     </div>

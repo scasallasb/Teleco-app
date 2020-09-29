@@ -43,8 +43,7 @@ export class FormUserUpdateComponent implements OnInit {
                this.usuario= user_;
                console.log(user_);
                this.buildForm(user_);     
-               this.marcador= new Marcador(parseFloat(user_.coordenadasX),parseFloat(user_.coordenadasY)); 
-               
+               this.marcador= new Marcador(parseFloat(user_.coordenadasX),parseFloat(user_.coordenadasY));   
             }
         );
     });
@@ -82,6 +81,15 @@ export class FormUserUpdateComponent implements OnInit {
       }
 
   private buildForm(user:any){
+    /**
+     * formulario principal del componente
+     * 
+     * parámetros
+     * ----------
+     * 
+     * user : usuario, any 
+     * 
+     */
     
     this.haveContrato = user.haveContract;
     this.isInstalled= user.isInstalled;
@@ -93,6 +101,7 @@ export class FormUserUpdateComponent implements OnInit {
         apellidoUser:[user.apellidoUser,[Validators.required]],
         segundoApellidoUser:[user.segundoApellidoUser],
         identificationUser:[parseInt(user.identificationUser),[Validators.required,Validators.min(5)]],
+        TipoDocumento:[user.TipoDocumento],
         telefonoUser:[user.telefonoUser,[Validators.required,Validators.min(7)]],
         emailUser:[user.emailUser,[Validators.required,Validators.email]],
         direccionUser:[user.direccionUser,[Validators.required]],
@@ -122,30 +131,22 @@ export class FormUserUpdateComponent implements OnInit {
   updateUser(event: Event) {
     /**
      * 
-     * se guarda usuario con la orden de
+     * se actualiza información de usuario con la orden de
      *  instalacion 
      * 
-     * parámetros : evento 
+     * parámetros
+     * ----------
+     *  evento : event 
+     *  
      */
       event.preventDefault();
-
-
-
-      if (this.forms.valid) {
-    const usuario = this.forms.value;
-    usuario.idUser= this.usuario.idUser;
-    console.log(this.forms.value);
-    this.info_user.actualizarUsuario(usuario).subscribe((newUser) => {
-    //let instalacion  = this.formInstalacion.value;
-    
-    //const user= this.forms.value;
-    //instalacion.usuario= user
-    console.log ("actualizado");
-    this.router.navigate(['instalacion']);
-    //console.log (newUser);
-
-    
-    /** 
+    if (this.forms.valid) {
+      const usuario = this.forms.value;
+      usuario.idUser= this.usuario.idUser;
+      this.info_user.actualizarUsuario(usuario).subscribe((newUser) => {
+      this.router.navigate(['informacion']);
+  
+      /** 
     this.instalacionService.crearInstalacion(instalacion).subscribe((newInstalacion)=>
 
     {
