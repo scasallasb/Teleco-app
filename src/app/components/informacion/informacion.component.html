@@ -5,7 +5,6 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
       <th scope="col">Teléfono</th>
       <th scope="col">Dirección</th>
       <th scope="col">Agregar instalación</th>
@@ -16,8 +15,7 @@
   <tbody>
     <tr *ngFor="let user of users;let i = index" [attr.data-index]="i" >
       <th scope="row">{{i+1}}</th>
-      <td>{{user.nombreUser}}</td>
-      <td>{{user.apellidoUser}}</td>
+      <td>{{user.nombreUser}} {{user.apellidoUser}}</td>
       <td>{{user.telefonoUser}}</td>
       <td>{{user.direccionUser}}</td>
       <td><button  (click)="addInstalacion($event, user.idUser)"  type="button" class="btn btn-outline-primary">+</button></td>

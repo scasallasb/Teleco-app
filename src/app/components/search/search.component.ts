@@ -14,7 +14,18 @@ export class SearchComponent implements OnInit{
               private _serviciosService:serviciosService,
               private _infoService:InfoService) { }
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params=>{
+
+    this._infoService.getQuery().subscribe((data:[])=>
+      {
+        this.clientes= data;})
+    
+      this.activatedRoute.params.subscribe(params=>{
+
+        this.clientes.forEach(element => {
+          console.log('aqui vamos a empezar a buscar')
+          if (element.match(params)){
+            console.log(element);          }
+        });
     this.servicios=this._serviciosService.buscarServicio(params['termino']);
     this.clientes= this._infoService.buscarByNombre(params['termino']);
     console.log(this._infoService.buscarByNombre(params['termino']));
